@@ -1,6 +1,6 @@
 # pylocksfile
 
-*pylocksfile* is a simple python package for linux-based systems. This package takes advantage of linux's internal file-system locking mechanism and provided a simple read/write locking interface for inter-process communication.
+pylocksfile is a simple python package for linux-based systems. This package takes advantage of linux's internal file-system locking mechanism and provided a simple read/write locking interface for inter-process communication.
 
 ## Advantages
 
@@ -28,21 +28,21 @@ locksfile = pylocksfile(locksfile_path = "dataLocksFile.lock", verbose = False, 
 #Acquiring lock 0 for reading (shared lock) with blocking
 locksfile.acquire(writeLock = False, lock_n = 0, blocking = True)
 
-# Do some reading (shared) operation associated lock 0.
+# Do some reading (shared) operation assosiated lock 0.
 
 #Acquiring locks 1,2,3 for writing (exclusive lock) with blocking
 locksfile.acquire(writeLock = True, lock_n = (1,3), blocking = True)
 
-# Do some writing (exclusive) operation associated locks 1,2,3. 
-# Do some reading (shared) operation associated lock 0.
+# Do some writing (exclusive) operation assosiated locks 1,2,3. 
+# Do some reading (shared) operation assosiated lock 0.
 
 #Using 'with' statement. Notice (2,1) means offset of 1 locks from lock 2, hence it is equivalent to 'lock_n = 2'.
 with locksfile(writeLock = False, lock_n = (2,1)):
 	#Converts lock 2 to read (shared). Do read (shared) operation on 0,2 and write (exclusive) on 1,3
 	pass
 
-# Do some writing (exclusive) operation associated locks 1,3. 
-# Do some reading (shared) operation associated lock 0.
+# Do some writing (exclusive) operation assosiated locks 1,3. 
+# Do some reading (shared) operation assosiated lock 0.
 
 #Releasing lock 0.
 locksfile.release(lock_n = (0,1))
