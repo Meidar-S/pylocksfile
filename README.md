@@ -1,6 +1,6 @@
 # pylocksfile
 
-pylocksfile is a simple python package for linux-based systems. This package takes advantage of linux's internal file-system locking mechanism and provided a simple read/write locking interface for inter-process communication.
+*pylocksfile* is a simple python package for linux-based systems. This package takes advantage of linux's internal file-system locking mechanism and provided a simple read/write locking interface for inter-process communication.
 
 ## Advantages
 
