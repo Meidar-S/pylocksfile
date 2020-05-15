@@ -181,6 +181,8 @@ class pylocksfile(object):
 		#If l_id is None, then give it a random name...for now process pid
 		if l_id is None:
 			lid = str(os.getpid())
+		
+		locksfile_path = os.path.abspath(locksfile_path)
 
 		if not os.path.isdir(os.path.split(locksfile_path)[0]):
 			raise IllegalArgumentError('pylocksfile - locksfile_path directory path does not exist.')
