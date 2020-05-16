@@ -13,6 +13,14 @@ pylocksfile is a simple python package for linux-based systems. This package tak
 *	Locks are shared via linux file-system, so there is no need to pass the lock object upon process creation, any process may share it at any time.
 *	Linux provides dead-lock detection, for up to 10 locks dependencies.
 
+## Installation
+
+Install *pylocksfile* with PyPi:
+
+```
+$ pip3 install pylocksfile
+```
+
 ## Similar libraries
 
 https://github.com/benediktschmitt/py-filelock library *"which implements a platform independent file lock in Python"*.
