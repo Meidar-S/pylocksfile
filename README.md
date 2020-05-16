@@ -8,7 +8,7 @@ pylocksfile is a simple python package for linux-based systems. This package tak
 
 *	Allow read/write (shared/exclusive) locking mechanising.
 *	Significantly smaller over-head for *acquire*/*release* operations.
-*	Supports many different locks within a single *pylocksfiles* (hence the **locks** in *pylocksfile*).
+*	Supports many different locks within a single *pylocksfile* (hence the **locks** in *pylocksfile*).
 *	Interval-based locking mechanising. Supports multiple *acquire*/*release* operations simultaneously, as long as locks indices are consecutive.
 *	Locks are shared via linux file-system, so there is no need to pass the lock object upon process creation, any process may share it at any time.
 *	Linux provides dead-lock detection, for up to 10 locks dependencies.
@@ -72,7 +72,7 @@ return
 *	**testReadWriteLocks(locksfile_path)**
 	A simple hard-coded script where two processes block each other at each step. It show general correctness of the locking mechanism,
 *	**testRace(locksfile_path, n_process = 4, n_tracks = 50, n_races = 100)**
-	Tests not only the correctness of the locking mechanism, but also it's speed. The test consists of several process performing hand-over-hand iteration
+	Tests not only the correctness of the locking mechanism, but also it's speed. The test consists of several processes performing hand-over-hand iteration
 	over a cyclic list several times. *n_process* is the number of processes, *n_tracks* is the length of the list and *n_races* is the number of cycles.
 	It show that as *n_tracks* and *n_races* increases, *pylocksfile* is up to 3 times faster than native python locks. As *n_process* increases, and *n_tracks* decreases, 
 	the speedup decreases to 1 due to context switch over-head.
