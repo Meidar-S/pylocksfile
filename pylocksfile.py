@@ -1,4 +1,3 @@
-import logging
 import os
 import sys
 import errno
@@ -21,7 +20,7 @@ class IllegalWithStatement(ValueError):
 #Import on pylocksfile with "from pylocksfile import *"
 __all__ = [ "pylocksfile" ]
 
-__version__ = "1.0.0"
+__version__ = "0.0.6"
 
 class lockInterval(object):
 	def __init__(self):
@@ -172,7 +171,7 @@ argument:
 
 """
 class pylocksfile(object):
-	def __init__(self, locksfile_path = None, verbose = True, l_id = None):
+	def __init__(self, locksfile_path = None, verbose = False, l_id = None):
 		
 		#If locksfile_path is None, create a temporary file in /tmp with random name (posix timestamp in ms)
 		if locksfile_path is None:
@@ -181,9 +180,9 @@ class pylocksfile(object):
 		#If l_id is None, then give it a random name...for now process pid
 		if l_id is None:
 			lid = str(os.getpid())
-		
-		locksfile_path = os.path.abspath(locksfile_path)
 
+		locksfile_path = os.path.abspath(locksfile_path)
+		
 		if not os.path.isdir(os.path.split(locksfile_path)[0]):
 			raise IllegalArgumentError('pylocksfile - locksfile_path directory path does not exist.')
 		
