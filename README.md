@@ -61,8 +61,10 @@ return
 
 *test.py* consists of two tests.
 
-*	**testReadWriteLocks(locksfile_path)** test is a simple hard-coded script where two processes block each other at each step. It show general correctness of the locking mechanism,
-*	**testRace(locksfile_path, n_process = 4, n_tracks = 50, n_races = 100)** tests not only the correctness of the locking mechanism, but also it's speed. The test consists of several process performing hand-over-hand iteration
+*	**testReadWriteLocks(locksfile_path)**
+	A simple hard-coded script where two processes block each other at each step. It show general correctness of the locking mechanism,
+*	**testRace(locksfile_path, n_process = 4, n_tracks = 50, n_races = 100)**
+	Tests not only the correctness of the locking mechanism, but also it's speed. The test consists of several process performing hand-over-hand iteration
 	over a cyclic list several times. *n_process* is the number of processes, *n_tracks* is the length of the list and *n_races* is the number of cycles.
 	It show that as *n_tracks* and *n_races* increases, *pylocksfile* is up to 3 times faster than native python locks. As *n_process* increases, and *n_tracks* decreases, 
 	the speedup decreases to 1 due to context switch over-head.
